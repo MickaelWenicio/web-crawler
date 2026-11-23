@@ -1,91 +1,91 @@
-# 📌 Projeto de Captura e Indexação de Imóveis  
+# 📌 Real Estate Scraping and Indexing Project  
 
-Este projeto captura dados de imóveis de um portal e os indexa no **Elasticsearch** para buscas rápidas e eficientes. Ele utiliza **Node.js**, **PostgreSQL** e **Elasticsearch**.  
+This project scrapes property listings from a real estate portal and indexes them in **Elasticsearch** for fast, efficient searches. It uses **Node.js**, **PostgreSQL** and **Elasticsearch**.  
 
 ---  
 
-## ✅ Requisitos  
+## ✅ Requirements  
 
-Antes de iniciar, certifique-se de ter os seguintes softwares instalados:  
+Before you start, make sure you have the following software installed:  
 
 - [Git](https://git-scm.com/downloads/win)  
-- [Node.js](https://nodejs.org/) (versão 16+)  
+- [Node.js](https://nodejs.org/) (version 16+)  
 - [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)  
 - [Elasticsearch](https://www.elastic.co/downloads/elasticsearch)    
 
 ---  
 
-## 📌 Instalação  
+## 📌 Installation  
 
-### 1️⃣ Clonar o repositório  
-Primeiro, abra o terminal e execute o comando abaixo para clonar o repositório do projeto:  
+### 1️⃣ Clone the repository  
+First, open the terminal and run the command below to clone the project repository:  
 ```sh
 git clone https://github.com/MickaelWenicio/Projeto-Captei.git
 ```
-Em seguida, entre na pasta do projeto:  
+Then go into the project folder:  
 ```sh
 cd Projeto-Captei
 ```
 
 ---  
 
-### 2️⃣ Instalar e configurar o **PostgreSQL**  
-1. Baixe e instale o PostgreSQL pelo [site oficial](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).  
-2. O projeto usará por padrão o usuário `postgres`, que é o usuário padrão do banco.  
-3. Renomeie o arquivo `example.env` do projeto para `.env` e configure com sua senha do banco de dados:  
+### 2️⃣ Install and configure **PostgreSQL**  
+1. Download and install PostgreSQL from the [official website](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).  
+2. By default the project uses the `postgres` user, which is the database's default user.  
+3. Rename the project's `example.env` file to `.env` and set your database password:  
    ```env
-   DB_PASSWORD=sua_senha
+   DB_PASSWORD=your_password
    ```  
 
 ---  
 
-### 3️⃣ Instalar e configurar o **Elasticsearch**  
+### 3️⃣ Install and configure **Elasticsearch**  
 
-#### IMPORTANTE!! Siga exatamente a ordem abaixo para que funcione corretamente.
+#### IMPORTANT!! Follow the order below exactly for it to work correctly.
 
-1. Baixe o Elasticsearch pelo [site oficial](https://www.elastic.co/downloads/elasticsearch).  
-2. Extraia o conteúdo do arquivo baixado para um diretório de sua escolha.  
-3. Acesse a pasta extraída e entre no diretório **bin**, clique duas vezes no arquivo `elasticsearch.bat`.  
-4. Aguarde finalizar o processo, e após finalizado, **feche o elasticsearch**.  
-5. No diretório do **PROJETO**, abra a pasta `elasticsearch`.    
-   - Dentro dela, existe apenas uma pasta chamada **`config`** com um arquivo.  
-6. **Copie** esse arquivo.  
-7. Agora, vá até a pasta onde você **extraiu** o Elasticsearch.  
-8. Dentro da pasta extraída, localize o diretório `config`, acesse ele e **cole o arquivo** copiado, substituindo o arquivo existente.  
-9. Para iniciar o Elasticsearch, vá até a pasta `bin` novamente, dentro do diretório extraído e **execute o arquivo** `elasticsearch.bat`:  
-10. Aguarde o Elasticsearch iniciar e teste acessando [http://localhost:9200](http://localhost:9200) no navegador.  
-    Se estiver funcionando, ele mostrará uma resposta JSON com informações sobre o serviço.  
+1. Download Elasticsearch from the [official website](https://www.elastic.co/downloads/elasticsearch).  
+2. Extract the downloaded file to a directory of your choice.  
+3. Open the extracted folder, go into the **bin** directory and double-click `elasticsearch.bat`.  
+4. Wait for the process to finish, and once it has, **close Elasticsearch**.  
+5. In the **PROJECT** directory, open the `elasticsearch` folder.    
+   - Inside it there is only one folder, named **`config`**, containing a single file.  
+6. **Copy** that file.  
+7. Now go to the folder where you **extracted** Elasticsearch.  
+8. Inside the extracted folder, find the `config` directory, open it and **paste the copied file**, replacing the existing one.  
+9. To start Elasticsearch, go back to the `bin` folder inside the extracted directory and **run** `elasticsearch.bat`:  
+10. Wait for Elasticsearch to start and test it by opening [http://localhost:9200](http://localhost:9200) in your browser.  
+    If it is working, it will show a JSON response with information about the service.  
 
 ---  
 
-### 4️⃣ Instalar as dependências do projeto  
-Com o **Node.js** instalado, navegue até a pasta do projeto e execute:  
+### 4️⃣ Install the project dependencies  
+With **Node.js** installed, go to the project folder and run:  
 ```sh
 npm install
 ```  
 
 ---  
 
-## 🚀 Execução do Projeto  
+## 🚀 Running the Project  
 
-### 🔹 Iniciar a aplicação  
-Para rodar a aplicação, use:  
+### 🔹 Start the application  
+To run the application, use:  
 ```sh
 npm start
 ```  
-Agora a aplicação estará rodando! 🎉 O projeto criará o índice, banco e tabelas necessárias.  
+The application is now running! 🎉 The project will create the required index, database and tables.  
 
 ---  
 
-## 👀 Visualização do Projeto  
+## 👀 Viewing the Data  
 
-Após iniciar a aplicação, você pode visualizar os dados dos imóveis indexados no Elasticsearch de diferentes maneiras:  
+After starting the application, you can view the property data indexed in Elasticsearch in several ways:  
 
-### 1️⃣ Via Navegador  
-- Acesse diretamente um documento específico no Elasticsearch colando o código do imóvel desejado após a URL base:  
-  **Exemplo:**  
+### 1️⃣ In the browser  
+- Open a specific document in Elasticsearch directly by appending the desired property ID to the base URL:  
+  **Example:**  
   `http://localhost:9200/imoveis/_doc/imovel_12`  
-  Isso retornará um documento no formato JSON, como o exemplo abaixo:  
+  This returns a JSON document like the example below:  
   ```json
   {
     "_index": "imoveis",
@@ -112,10 +112,10 @@ Após iniciar a aplicação, você pode visualizar os dados dos imóveis indexad
   }
   ```  
 
-### 2️⃣ Via Ferramentas como **Insomnia** ou **Postman**  
-- Faça uma requisição **GET** para a API do Elasticsearch:  
+### 2️⃣ With tools like **Insomnia** or **Postman**  
+- Send a **GET** request to the Elasticsearch API:  
   **URL:** `http://localhost:9200/imoveis/_search`  
-  **Corpo da Requisição (JSON):**  
+  **Request body (JSON):**  
   ```json
   {
     "query": {
@@ -125,11 +125,11 @@ Após iniciar a aplicação, você pode visualizar os dados dos imóveis indexad
     "size": 120
   }
   ```  
-  Isso retornará todos os imóveis indexados (até 120 documentos) no formato JSON.  
+  This returns all indexed properties (up to 120 documents) as JSON.  
 
-### 3️⃣ Via **Kibana** (Opcional)  
-- Se você estiver utilizando o Kibana, pode usar o **Dev Tools** para executar consultas diretamente no Elasticsearch.  
-  **Exemplo de consulta:**  
+### 3️⃣ With **Kibana** (optional)  
+- If you use Kibana, you can use **Dev Tools** to run queries directly against Elasticsearch.  
+  **Example query:**  
   ```json
   GET /imoveis/_search
   {
